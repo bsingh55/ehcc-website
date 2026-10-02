@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Endeavour Hills Cricket Club (the Eagles): junior, senior, women's and veterans cricket at Sydney Pargeter Reserve, Endeavour Hills, Victoria.">
+<meta property="og:title" content="Endeavour Hills Cricket Club">
+<meta property="og:description" content="Cricket for under 10s to over 70s at Sydney Pargeter Reserve, Endeavour Hills.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.endeavourhillscc.com.au/">
+<title>Endeavour Hills Cricket Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: clubhouse scoreboard hero, then a junior-to-veteran pathway, honour board, and plain club info. */
+:root {
+  --paper: #f5f8f3;
+  --surface: #ffffff;
+  --ink: #13261c;
+  --muted: #55675b;
+  --line: #d5dfd6;
+  --green: #0e5a33;
+  --green-soft: #e3efe6;
+  --gold: #f4b81c;
+  --gold-ink: #7a5600;
+  --board: #0b2117;
+  --board-2: #12301f;
+  --board-ink: #f3f6f1;
+  --board-dim: #9fb6a7;
+  --f-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --f-body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --wrap: 72rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0c1611; --surface: #122019; --ink: #e6eee8; --muted: #9db1a4; --line: #24382d;
+    --green: #4cc07f; --green-soft: #173325; --gold: #f4b81c; --gold-ink: #f4c64a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0c1611; --surface: #122019; --ink: #e6eee8; --muted: #9db1a4; --line: #24382d;
+  --green: #4cc07f; --green-soft: #173325; --gold: #f4b81c; --gold-ink: #f4c64a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--f-body); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 3px; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; line-height: 1; text-wrap: balance; margin: 0; letter-spacing: .005em; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); text-transform: uppercase; }
+h3 { font-size: 1.6rem; text-transform: uppercase; }
+p { margin: 0; }
+.eyebrow { font: 700 .75rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+.lede { color: var(--muted); max-width: 38rem; font-size: 1.05rem; }
+section { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.section-head { display: grid; gap: .8rem; margin-bottom: 2.25rem; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.25rem; border-radius: 999px; font: 700 .95rem/1 var(--f-body); text-decoration: none; border: 2px solid transparent; transition: transform .15s ease, background-color .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-gold { background: var(--gold); color: #1c1400; }
+.btn-gold:hover { background: #ffc93d; }
+.btn-ghost { border-color: rgba(255,255,255,.4); color: var(--board-ink); }
+.btn-ghost:hover { background: rgba(255,255,255,.08); }
+.btn-line { border-color: var(--line); color: var(--ink); background: var(--surface); }
+.btn-line:hover { border-color: var(--green); }
+.arrow { font-family: var(--f-display); font-size: 1.1em; }
+
+/* Header */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--board); color: var(--board-ink); border-bottom: 1px solid rgba(255,255,255,.08); }
+.head-row { display: flex; align-items: center; gap: 1rem; padding-block: .7rem; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; flex-shrink: 0; }
+.brand svg { width: 2.6rem; height: 2.6rem; }
+.brand b { display: block; font: 800 1.35rem/0.95 var(--f-display); text-transform: uppercase; letter-spacing: .02em; }
+.brand small { display: block; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--board-dim); }
+.nav { display: flex; gap: .2rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { padding: .5rem .7rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: .9rem; white-space: nowrap; color: var(--board-dim); }
+.nav a:hover { color: var(--board-ink); background: rgba(255,255,255,.06); }
+.head-cta { padding: .6rem 1rem; font-size: .85rem; flex-shrink: 0; }
+@media (max-width: 860px) {
+  .head-row { flex-wrap: wrap; row-gap: .4rem; }
+  .nav { order: 3; width: 100%; margin-left: -.7rem; }
+  .head-cta { margin-left: auto; }
+}
+
+/* Hero */
+.hero { background: var(--board); color: var(--board-ink); padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5rem); position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 7.5rem, rgba(255,255,255,.025) 7.5rem 15rem); pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.hero .eyebrow { color: var(--gold); }
+.hero h1 { font-size: clamp(3.2rem, 9vw, 6.4rem); text-transform: uppercase; line-height: .88; margin-top: 1rem; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.sub { margin-top: 1.4rem; max-width: 34rem; font-size: 1.1rem; color: var(--board-dim); }
+.hero p.sub strong { color: var(--board-ink); font-weight: 600; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+/* Scoreboard */
+.scoreboard { background: var(--board-2); border: 6px solid #1c3d2a; border-radius: 6px; padding: 1rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 20px 50px rgba(0,0,0,.35); }
+.sb-title { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .2rem .3rem .9rem; border-bottom: 1px dashed rgba(255,255,255,.18); margin-bottom: .8rem; }
+.sb-title span { font: 800 1.5rem/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; }
+.sb-title small { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--board-dim); }
+.sb-row { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .45rem .3rem; }
+.sb-row + .sb-row { border-top: 1px solid rgba(255,255,255,.06); }
+.sb-label { font: 600 1.05rem/1.1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--board-dim); }
+.tiles { display: flex; gap: .3rem; }
+.tile { display: grid; place-items: center; min-width: 2.6rem; height: 3.1rem; padding-inline: .35rem; background: #050f0a; color: var(--board-ink); border-radius: 3px; font: 900 2.1rem/1 var(--f-display); font-variant-numeric: tabular-nums; box-shadow: inset 0 -1.55rem 0 rgba(255,255,255,.03), inset 0 0 0 1px rgba(255,255,255,.06); position: relative; }
+.tile::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0,0,0,.6); }
+.tile.gold { color: var(--gold); }
+.tile.wide { font-size: 1.55rem; letter-spacing: .04em; }
+.sb-foot { margin-top: .8rem; padding: .7rem .3rem 0; border-top: 1px dashed rgba(255,255,255,.18); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--board-dim); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* Quick links strip */
+.quick { background: var(--gold); color: #1c1400; }
+.quick-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.quick a { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: 1.1rem 1rem; text-decoration: none; font: 800 1.3rem/1 var(--f-display); text-transform: uppercase; letter-spacing: .03em; border-left: 1px solid rgba(0,0,0,.12); }
+.quick a:last-child { border-right: 1px solid rgba(0,0,0,.12); }
+.quick a:hover { background: rgba(0,0,0,.06); }
+@media (max-width: 760px) { .quick-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .quick a { border-bottom: 1px solid rgba(0,0,0,.12); } }
+
+/* Pathway */
+.pathway { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 960px) { .pathway { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .pathway { grid-template-columns: minmax(0, 1fr); } }
+.path { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; display: grid; grid-template-rows: auto auto 1fr auto; gap: .8rem; min-width: 0; }
+.path-top { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.age { font: 800 1.05rem/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; background: var(--green-soft); color: var(--green); padding: .4rem .6rem; border-radius: 4px; }
+.path-kind { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.path p { color: var(--muted); font-size: .95rem; }
+.facts { display: grid; gap: .35rem; font-size: .88rem; margin: 0; }
+.facts div { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: .5rem; }
+.facts dt { font-weight: 700; color: var(--ink); }
+.facts dd { margin: 0; color: var(--muted); }
+.path a.more { font-weight: 700; color: var(--green); text-decoration: none; font-size: .92rem; }
+.path a.more:hover { text-decoration: underline; }
+.path.feature { background: var(--board); color: var(--board-ink); border-color: var(--board); }
+.path.feature .age { background: var(--gold); color: #1c1400; }
+.path.feature p, .path.feature dd, .path.feature .path-kind { color: var(--board-dim); }
+.path.feature dt { color: var(--board-ink); }
+.path.feature a.more { color: var(--gold); }
+.round-year { margin-top: 1.5rem; padding: 1rem 1.25rem; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .95rem; }
+.round-year strong { color: var(--ink); }
+
+/* News */
+.news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 760px) { .news-grid { grid-template-columns: minmax(0, 1fr); } }
+.post { border-top: 3px solid var(--ink); padding-top: 1.1rem; display: grid; gap: .7rem; align-content: start; min-width: 0; }
+.post time { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.post h3 { font-size: 1.9rem; }
+.post p { color: var(--muted); }
+.post ul { margin: 0; padding-left: 1.1rem; color: var(--muted); display: grid; gap: .2rem; }
+.post .note { font-size: .88rem; padding: .7rem .9rem; background: var(--green-soft); border-radius: 6px; color: var(--ink); }
+
+/* About */
+.about { background: var(--surface); border-block: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); }
+@media (max-width: 860px) { .about-grid { grid-template-columns: minmax(0, 1fr); } }
+.prose { display: grid; gap: 1rem; max-width: 36rem; }
+.prose p { color: var(--muted); }
+.prose p:first-child { color: var(--ink); font-size: 1.15rem; }
+.values { display: grid; gap: 1rem; align-content: start; }
+.value { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .9rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.value:last-child { border-bottom: 0; }
+.value svg { width: 2.5rem; height: 2.5rem; color: var(--green); }
+.value h3 { font-size: 1.35rem; margin-bottom: .3rem; }
+.value p { color: var(--muted); font-size: .95rem; }
+
+/* Committee */
+.committee { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; }
+@media (max-width: 860px) { .committee { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .committee { grid-template-columns: minmax(0, 1fr); } }
+.member { display: grid; gap: .1rem; padding-block: .9rem; border-bottom: 1px solid var(--line); min-width: 0; }
+.member .role { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-weight: 700; }
+.member .name { font-weight: 600; font-size: 1.05rem; }
+.member .phone { font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Honour board */
+.honour { background: var(--board); color: var(--board-ink); }
+.honour .eyebrow { color: var(--gold); }
+.honour .lede { color: var(--board-dim); }
+.board { background: linear-gradient(180deg, #2a1a0f, #23160c); border: 10px solid #3b2615; border-radius: 4px; padding: clamp(1rem, 3vw, 2rem); box-shadow: inset 0 0 40px rgba(0,0,0,.5); }
+.board-title { text-align: center; font: 900 clamp(1.6rem, 4vw, 2.3rem)/1 var(--f-display); text-transform: uppercase; letter-spacing: .12em; color: #e9c46a; margin-bottom: 1.25rem; }
+.board-scroll { overflow-x: auto; }
+.board table { width: 100%; min-width: 34rem; border-collapse: collapse; color: #ecd9a8; font-variant-numeric: tabular-nums; }
+.board th { font: 700 .72rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; text-align: left; padding: .6rem .5rem; color: #c9a95a; border-bottom: 1px solid rgba(233,196,106,.35); }
+.board td { padding: .45rem .5rem; border-bottom: 1px solid rgba(233,196,106,.1); font-size: .95rem; }
+.board td:first-child { font: 700 1.1rem/1 var(--f-display); letter-spacing: .04em; color: #e9c46a; white-space: nowrap; }
+.board td.comp { font-size: .78rem; color: #b49a62; }
+.board tr.now td { color: #fff3cf; }
+.board details { margin-top: 1rem; }
+.board summary { cursor: pointer; text-align: center; font-weight: 700; color: #e9c46a; padding: .6rem; border: 1px solid rgba(233,196,106,.35); border-radius: 999px; list-style: none; max-width: 22rem; margin-inline: auto; }
+.board summary::-webkit-details-marker { display: none; }
+.board details[open] summary { margin-bottom: 1rem; }
+
+/* Sponsors */
+.sponsors { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 1rem; }
+.sponsor { display: grid; gap: .4rem; align-content: start; padding: 1.3rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; transition: border-color .15s ease, transform .15s ease; min-width: 0; }
+.sponsor:hover { border-color: var(--green); transform: translateY(-2px); }
+.sponsor b { font: 800 1.45rem/1.05 var(--f-display); text-transform: uppercase; }
+.sponsor span { font-size: .88rem; color: var(--muted); }
+.sponsor small { font-size: .8rem; color: var(--green); font-weight: 700; overflow-wrap: anywhere; }
+.sponsor-cta { margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; color: var(--muted); }
+
+/* Find us + contact */
+.contact { background: var(--green); color: #fff; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2rem, 5vw, 4rem); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+.contact .eyebrow { color: var(--gold); }
+.contact h2 { color: #fff; }
+.ground { margin-top: 1.5rem; display: grid; gap: .3rem; }
+.ground b { font: 800 2rem/1 var(--f-display); text-transform: uppercase; }
+.ground span { opacity: .85; }
+.contact .btn-line { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
+.contact .btn-line:hover { border-color: #fff; }
+.contact-list { display: grid; gap: 0; align-content: start; }
+.contact-item { display: grid; gap: .25rem; padding-block: 1rem; border-bottom: 1px solid rgba(255,255,255,.2); }
+.contact-item:first-child { padding-top: 0; }
+.contact-item .k { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; opacity: .75; font-weight: 700; }
+.contact-item .v { font-size: 1.1rem; font-weight: 600; overflow-wrap: anywhere; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.contact-item a { text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 3px; }
+.copy { font: 600 .75rem/1 var(--f-body); padding: .4rem .65rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.5); background: transparent; color: #fff; cursor: pointer; }
+.copy:hover { background: rgba(255,255,255,.12); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .contact { background: #0f3a24; } }
+:root[data-theme="dark"] .contact { background: #0f3a24; }
+
+/* Footer */
+.foot { background: var(--board); color: var(--board-dim); font-size: .88rem; padding-block: 2.5rem; }
+.foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 2rem; }
+@media (max-width: 760px) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-grid > :first-child { grid-column: 1 / -1; } }
+.foot h4 { margin: 0 0 .6rem; font: 700 .72rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--board-ink); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.foot a { text-decoration: none; }
+.foot a:hover { color: var(--board-ink); }
+.foot-base { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; }
+
+/* Load moment: scoreboard tiles flip in once */
+@keyframes flip { from { transform: rotateX(-80deg); } to { transform: rotateX(0); } }
+.tile { animation: flip .5s cubic-bezier(.2,.8,.2,1) both; transform-origin: 50% 50%; }
+.sb-row:nth-of-type(2) .tile { animation-delay: .08s; }
+.sb-row:nth-of-type(3) .tile { animation-delay: .16s; }
+.sb-row:nth-of-type(4) .tile { animation-delay: .24s; }
+.sb-row:nth-of-type(5) .tile { animation-delay: .32s; }
+</style>
+</head>
+<body>
+
+
+<!-- ============ HEADER ============ -->
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="Endeavour Hills Cricket Club home">
+      <!-- EDIT: replace this stand-in crest with the club logo, e.g. <img src="logo.png" alt="" width="42" height="42"> -->
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <defs><clipPath id="shield"><path d="M24 2 44 8v15c0 12-8.5 19.5-20 23C12.5 42.5 4 35 4 23V8Z"/></clipPath></defs>
+        <g clip-path="url(#shield)">
+          <rect width="48" height="48" fill="#0e5a33"/>
+          <path d="M-6 30 30-6h9L3 30Z" fill="#f4b81c"/>
+          <path d="M3 30 39-6h5L8 30Z" fill="#fff"/>
+          <rect y="30" width="48" height="18" fill="#0e5a33"/>
+        </g>
+        <path d="M24 2 44 8v15c0 12-8.5 19.5-20 23C12.5 42.5 4 35 4 23V8Z" fill="none" stroke="#f4b81c" stroke-width="2"/>
+        <text x="24" y="41" text-anchor="middle" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="11" fill="#fff" letter-spacing=".5">EHCC</text>
+      </svg>
+      <span><b>Endeavour Hills</b><small>Cricket Club · Eagles</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#play">Play</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+      <a href="#committee">Committee</a>
+      <a href="#history">History</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <!-- EDIT: point this at the club's PlayHQ registration link -->
+    <a class="btn btn-gold head-cta" href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Register</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Sydney Pargeter Reserve · Endeavour Hills</p>
+      <h1>Cricket for <em>under 10s</em> to over 70s</h1>
+      <p class="sub">The Eagles are a family club in Melbourne's south-east. <strong>Four senior XIs in the VSDCA</strong>, juniors from Woolworths Cricket Blast up, girls' and women's cricket, and veterans who still turn up every week.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Register for 2026/27 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#play">Find your team</a>
+      </div>
+    </div>
+
+    <div class="scoreboard" role="img" aria-label="Club scoreboard: 50 seasons, 4 senior XIs, 7 competitions, ages under 10 to over 70">
+      <div class="sb-title"><span>Eagles</span><small>Season 2026/27</small></div>
+      <div class="sb-row"><span class="sb-label">Seasons</span><span class="tiles"><span class="tile gold">5</span><span class="tile gold">0</span></span></div>
+      <div class="sb-row"><span class="sb-label">Senior XIs</span><span class="tiles"><span class="tile">4</span></span></div>
+      <div class="sb-row"><span class="sb-label">Competitions</span><span class="tiles"><span class="tile">7</span></span></div>
+      <div class="sb-row"><span class="sb-label">Youngest</span><span class="tiles"><span class="tile wide">U10</span></span></div>
+      <div class="sb-row"><span class="sb-label">Oldest</span><span class="tiles"><span class="tile wide">O70</span></span></div>
+      <div class="sb-foot"><span>Home: Sydney Pargeter Res.</span><span>Go Eagles</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK LINKS ============ -->
+<nav class="quick" aria-label="Quick links">
+  <div class="wrap quick-row">
+    <!-- EDIT: link these to PlayHQ pages -->
+    <a href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Register <span class="arrow">→</span></a>
+    <a href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Fixtures <span class="arrow">→</span></a>
+    <a href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Results <span class="arrow">→</span></a>
+    <a href="#contact">Find the ground <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<!-- ============ PLAY ============ -->
+<section id="play">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Get involved</p>
+      <h2>Find your cricket</h2>
+      <p class="lede">One club, every age. Pick where you fit and register through PlayHQ. Not sure? Email the club and we'll point you to the right team.</p>
+    </div>
+
+    <div class="pathway">
+      <article class="path">
+        <div class="path-top"><span class="age">Ages 5–10</span><span class="path-kind">Starters</span></div>
+        <h3>Woolworths Cricket Blast</h3>
+        <p>The first taste of cricket. Short, active sessions where kids learn to bat, bowl and catch with their mates.</p>
+        <a class="more" href="#contact">Ask about Blast →</a>
+      </article>
+
+      <article class="path">
+        <div class="path-top"><span class="age">U10 – U17</span><span class="path-kind">Juniors</span></div>
+        <h3>Junior teams</h3>
+        <dl class="facts">
+          <div><dt>Leagues</dt><dd>DDCA, FTGDCA and ISEC</dd></div>
+          <div><dt>Pitches</dt><dd>Synthetic and turf</dd></div>
+          <div><dt>Games</dt><dd>Friday evenings, Saturday and Sunday mornings</dd></div>
+        </dl>
+        <a class="more" href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Register a junior →</a>
+      </article>
+
+      <article class="path">
+        <div class="path-top"><span class="age">Under 15</span><span class="path-kind">Representative</span></div>
+        <h3>J.G. Craig Shield</h3>
+        <p>Our U15 squad plays the VSDCA J.G. Craig Shield carnival every January, one of the state's best junior pathways.</p>
+        <a class="more" href="#contact">Ask about selection →</a>
+      </article>
+
+      <article class="path feature">
+        <div class="path-top"><span class="age">Seniors</span><span class="path-kind">Saturdays · Turf</span></div>
+        <h3>VSDCA 1st to 4th XI</h3>
+        <p>Turf cricket in the Victorian Sub-District Cricket Association, Victoria's second tier of club cricket. Our seniors also coach and mentor the juniors.</p>
+        <a class="more" href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">Register as a senior →</a>
+      </article>
+
+      <article class="path">
+        <div class="path-top"><span class="age">Girls &amp; women</span><span class="path-kind">All levels</span></div>
+        <h3>Women's &amp; girls' cricket</h3>
+        <p>Girls' teams and a women's side for new and experienced players. Mums are welcome too.</p>
+        <a class="more" href="#contact">Join a team →</a>
+      </article>
+
+      <article class="path">
+        <div class="path-top"><span class="age">Over 50 · Over 70</span><span class="path-kind">Veterans</span></div>
+        <h3>Veterans</h3>
+        <p>Over 50s and Over 70s cricket with Veterans Cricket Victoria and local competitions, including midweek games.</p>
+        <a class="more" href="#contact">Get a game →</a>
+      </article>
+    </div>
+
+    <p class="round-year"><strong>Also need:</strong> coaches, team managers, scorers, umpires and canteen volunteers. If you can give a few hours a season, <a href="#contact">get in touch</a>.</p>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<!-- EDIT: add new posts at the top of .news-grid; delete old ones -->
+<section id="news" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Club news</p>
+      <h2>Latest from the nets</h2>
+    </div>
+    <div class="news-grid">
+      <article class="post">
+        <time datetime="2026-09">September 2026</time>
+        <h3>6-a-side tournament</h3>
+        <p>Our first club event of the season, on the Friday public holiday before the AFL Grand Final. A full day of cricket with a BBQ and music.</p>
+        <ul>
+          <li>$150 entry per team, capped at 12 teams</li>
+          <li>$720 prize for the winning team</li>
+          <li>Max two 1st XI players and at least one junior per team</li>
+        </ul>
+        <p class="note">Senior players who want to be considered for selection are expected at club events like this one.</p>
+      </article>
+      <article class="post">
+        <time datetime="2026-08">August 2026</time>
+        <h3>Junior pre-season nets</h3>
+        <p>Indoor nets at Casey Stadium on Friday 21 and 28 August and 4 and 11 September.</p>
+        <ul>
+          <li>U10 to U14 and girls: 6:00 – 7:00 pm</li>
+          <li>U15 and older: 7:00 – 8:00 pm</li>
+          <li>$10 per session, paid online</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="prose">
+      <p class="eyebrow">About the Eagles</p>
+      <h2>One club. One team.</h2>
+      <p>Endeavour Hills Cricket Club has fielded teams for 50 seasons, growing from a single local side into a club that plays across seven competitions in Melbourne's south-east.</p>
+      <p>We run as one integrated club across seniors, juniors, women's and veterans cricket. Senior players help with junior coaching, match-day preparation and mentoring, so a ten-year-old at Blast can see a clear path all the way to the 1st XI.</p>
+      <p>Over the years the Eagles have won 17 senior and 29 junior premierships across the WGCA, DDCA, MYCA, the All Girls competition and the VSDCA.</p>
+      <p>Our home is Sydney Pargeter Reserve, with five grounds, two turf tables and turf practice wickets, available to the club all year round.</p>
+    </div>
+    <div class="values">
+      <div class="value">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="14" cy="14" r="6"/><circle cx="28" cy="16" r="5"/><path d="M4 34c1-7 5-11 10-11s9 4 10 11M22 34c.7-5 3.3-8 7-8s6.3 3 7 8"/></svg>
+        <div><h3>Family club</h3><p>Parents play alongside their kids, and everyone from under 10s to over 70s shares the same clubrooms.</p></div>
+      </div>
+      <div class="value">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 4 34 9v10c0 9-6 14.5-14 17C12 33.5 6 28 6 19V9Z"/><path d="m14 20 4 4 8-9"/></svg>
+        <div><h3>Child safe</h3><p>We follow the Victorian Child Safe Standards. All executives, coaches and team managers hold a Working with Children Check.</p></div>
+      </div>
+      <div class="value">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M11 11c4 3 4 15 0 18M29 11c-4 3-4 15 0 18"/></svg>
+        <div><h3>Everyone welcome</h3><p>Players from many backgrounds and every skill level. Come for a hit, stay for the community.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMITTEE ============ -->
+<!-- EDIT: update each season -->
+<section id="committee">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Committee 2026/27</p>
+      <h2>The people who run the club</h2>
+      <p class="lede">All committee members can be reached through the club email, <strong>endeavourhillscricketclub@gmail.com</strong>.</p>
+    </div>
+    <div class="committee">
+      <div class="member"><span class="role">President</span><span class="name">Gary Parsons</span><span class="phone">0408 153 332</span></div>
+      <div class="member"><span class="role">Vice President</span><span class="name">Ash Nagendran</span><span class="phone">0450 622 880</span></div>
+      <div class="member"><span class="role">Vice President</span><span class="name">Kelly Adcock</span></div>
+      <div class="member"><span class="role">Secretary</span><span class="name">Sachira Weerasinghe</span><span class="phone">0402 122 293</span></div>
+      <div class="member"><span class="role">Treasurer</span><span class="name">Jay Stent</span></div>
+      <div class="member"><span class="role">Junior Coordinator</span><span class="name">Bhanu Singh</span></div>
+      <div class="member"><span class="role">Men's Coordinator</span><span class="name">Kusal Panditharatne</span></div>
+      <div class="member"><span class="role">General Member</span><span class="name">Bailey McKenzie</span></div>
+      <div class="member"><span class="role">General Member</span><span class="name">Tallha Ahmed</span></div>
+      <div class="member"><span class="role">General Member</span><span class="name">Sree Sreekumar</span></div>
+      <div class="member"><span class="role">General Member</span><span class="name">Adish Bhavsar</span></div>
+      <div class="member"><span class="role">General Member</span><span class="name">Bineth Bandara</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONOUR BOARD ============ -->
+<section id="history" class="honour">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Club history</p>
+      <h2>Honour board</h2>
+      <p class="lede">Fifty seasons of club office bearers, from the BPDCA in 1977/78 to today. Club historian: Tom Hollis.</p>
+    </div>
+    <div class="board">
+      <p class="board-title">Endeavour Hills C.C.</p>
+      <div class="board-scroll">
+        <table>
+          <thead><tr><th>Season</th><th>President</th><th>Secretary</th><th>Treasurer</th><th>Competitions</th></tr></thead>
+          <tbody>
+            <tr class="now"><td>2026/27</td><td>Gary Parsons</td><td>Sach Weerasinghe</td><td>Jay Stent</td><td class="comp">VSDCA, DDCA, VCV, ECA, SBS, EGWC, FTGDCA</td></tr>
+            <tr><td>2025/26</td><td>Gary Parsons</td><td>Sach Weerasinghe</td><td>Kaylene Powell</td><td class="comp">VSDCA, DDCA, VCV, ECA, SBS, EGWC, FTGDCA</td></tr>
+            <tr><td>2024/25</td><td>Gary Parsons</td><td>Sach Weerasinghe</td><td>Kaylene Powell</td><td class="comp">VSDCA, DDCA, VCV, ECA, SBS, EGWC, FTGDCA</td></tr>
+            <tr><td>2023/24</td><td>Sagar Aher</td><td>Sach Weerasinghe</td><td>Amarjeet Channa</td><td class="comp">VSDCA, DDCA, VCV, ISEC, SBS</td></tr>
+            <tr><td>2022/23</td><td>Arun Rajendran</td><td>Sach Weerasinghe</td><td>Amarjeet Channa</td><td class="comp">VSDCA, DDCA, VCV, ISEC</td></tr>
+            <tr><td>2021/22</td><td>Arun Rajendran</td><td>David Anning</td><td>Amarjeet Channa</td><td class="comp">VSDCA, DDCA, VCV, ISEC</td></tr>
+            <tr><td>2020/21</td><td>Gary Parsons</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, VCV, ISEC</td></tr>
+            <tr><td>2019/20</td><td>Gary Parsons</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MYCA, VCV</td></tr>
+            <tr><td>2018/19</td><td>Jay Stent</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MYCA, VCV</td></tr>
+            <tr><td>2017/18</td><td>Jay Stent</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MYCA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details>
+        <summary>Show seasons 1977/78 to 2016/17</summary>
+        <div class="board-scroll">
+          <table>
+            <thead><tr><th>Season</th><th>President</th><th>Secretary</th><th>Treasurer</th><th>Competitions</th></tr></thead>
+            <tbody>
+            <tr><td>2016/17</td><td>Darren Goodson / Tom Hollis</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MCA</td></tr>
+            <tr><td>2015/16</td><td>Darren Goodson</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MCA</td></tr>
+            <tr><td>2014/15</td><td>Darren Goodson</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA, MCA</td></tr>
+            <tr><td>2013/14</td><td>Darren Goodson</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2012/13</td><td>Darren Goodson</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2011/12</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2010/11</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2009/10</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2008/09</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2007/08</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2006/07</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2005/06</td><td>Darren Goodson</td><td>David Anning</td><td>Reg Pickering</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2004/05</td><td>Mark Stevens</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2003/04</td><td>Wes Dunkley</td><td>David Anning</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2002/03</td><td>Wes Dunkley</td><td>John Feild</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2001/02</td><td>Wes Dunkley</td><td>John Feild</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>2000/01</td><td>Greg Hutchinson</td><td>John Feild</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>1999/00</td><td>Greg Hutchinson</td><td>John Feild</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>1998/99</td><td>Greg Hutchinson</td><td>Reg Pickering</td><td>David Anning</td><td class="comp">VSDCA, DDCA</td></tr>
+            <tr><td>1997/98</td><td>Rick Cove</td><td>Reg Pickering</td><td>David Anning</td><td class="comp">DDCA</td></tr>
+            <tr><td>1996/97</td><td>Rick Cove</td><td>Reg Pickering</td><td>David Anning</td><td class="comp">DDCA</td></tr>
+            <tr><td>1995/96</td><td>Rick Cove</td><td>Reg Pickering</td><td>Grant Lingwood-Smith</td><td class="comp">DDCA</td></tr>
+            <tr><td>1994/95</td><td>David Anning</td><td>Reg Pickering</td><td>John Feild</td><td class="comp">DDCA</td></tr>
+            <tr><td>1993/94</td><td>David Anning</td><td>Reg Pickering</td><td>Gordon Edwards</td><td class="comp">DDCA</td></tr>
+            <tr><td>1992/93</td><td>David Anning</td><td>Reg Pickering</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1991/92</td><td>David Anning</td><td>Reg Pickering</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1990/91</td><td>David Anning</td><td>Reg Pickering</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1989/90</td><td>David Anning</td><td>Reg Pickering</td><td>George Marin</td><td class="comp">DDCA</td></tr>
+            <tr><td>1988/89</td><td>Anuerin Williams</td><td>Reg Pickering</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1987/88</td><td>David Anning</td><td>Leigh Pettigrew</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1986/87</td><td>David Anning</td><td>Robert Boxall</td><td>Martin Evans</td><td class="comp">DDCA</td></tr>
+            <tr><td>1985/86</td><td>David Anning</td><td>Robert Boxall</td><td>Greg Durham</td><td class="comp">DDCA</td></tr>
+            <tr><td>1984/85</td><td>Paul Archer</td><td>Robert Boxall</td><td>Greg Durham</td><td class="comp">DDCA</td></tr>
+            <tr><td>1983/84</td><td>Paul Archer</td><td>Cathy Anning</td><td>Greg Durham</td><td class="comp">WGCA</td></tr>
+            <tr><td>1982/83</td><td>Greg Jones</td><td>Chris Thompson</td><td>Dale Oorloff</td><td class="comp">WGCA</td></tr>
+            <tr><td>1981/82</td><td>Greg Jones</td><td>Lindsey Hardman</td><td>George Marin</td><td class="comp">WGCA</td></tr>
+            <tr><td>1980/81</td><td>Leigh Pettigrew</td><td>Guy Dunkley</td><td>Jeff Williams</td><td class="comp">WGCA</td></tr>
+            <tr><td>1979/80</td><td>Lindsey Hardman</td><td>Leigh Pettigrew</td><td>Robin Hardman</td><td class="comp">BPDCA</td></tr>
+            <tr><td>1978/79</td><td>Chris Reynolds</td><td>Ray Cook</td><td>Paul Lelkes</td><td class="comp">BPDCA</td></tr>
+            <tr><td>1977/78</td><td>Andy O&#x27;Sullivan</td><td>Ray Cook</td><td>Mary Cook</td><td class="comp">BPDCA</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPONSORS ============ -->
+<!-- EDIT: add sponsor logos inside each card if you like -->
+<section id="sponsors">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Our sponsors</p>
+      <h2>Backing the Eagles</h2>
+      <p class="lede">Local businesses that keep cricket affordable in Endeavour Hills. Please support them.</p>
+    </div>
+    <div class="sponsors">
+      <a class="sponsor" href="https://picoearlylearning.com.au/"><b>PICO Early Learning</b><span>Early learning centre &amp; kindergarten</span><small>picoearlylearning.com.au</small></a>
+      <a class="sponsor" href="https://tnfaccountants.com.au/"><b>TNF Accountants</b><span>Accounting and tax</span><small>tnfaccountants.com.au</small></a>
+      <a class="sponsor" href="https://jtpfinance.com/"><b>Jerome Thomas Property Finance</b><span>Property finance</span><small>jtpfinance.com</small></a>
+      <a class="sponsor" href="https://nextroute.com.au/"><b>Next Route Finance</b><span>Mortgage, commercial and SMSF lending</span><small>nextroute.com.au</small></a>
+      <div class="sponsor"><b>DONS Automotive</b><span>Let the Don do it</span><small>infodons@gmail.com</small></div>
+    </div>
+    <div class="sponsor-cta">
+      <span>Want your business in front of 50 seasons of local cricket families?</span>
+      <a class="btn btn-line" href="#contact">Become a sponsor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Find us</p>
+      <h2>Come down to the ground</h2>
+      <div class="ground">
+        <b>Sydney Pargeter Reserve</b>
+        <span>Power Road, Endeavour Hills VIC 3802</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Sydney+Pargeter+Reserve+Power+Road+Endeavour+Hills+VIC+3802">Open in Google Maps <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="contact-list">
+      <div class="contact-item">
+        <span class="k">Email</span>
+        <span class="v"><span id="club-email">endeavourhillscricketclub@gmail.com</span><button class="copy" id="copy-email" type="button" data-copy="endeavourhillscricketclub@gmail.com">Copy</button></span>
+      </div>
+      <div class="contact-item">
+        <span class="k">Secretary</span>
+        <span class="v">Sachira Weerasinghe · 0402 122 293</span>
+      </div>
+      <div class="contact-item">
+        <span class="k">WhatsApp</span>
+        <span class="v"><a href="https://wa.me/61422273621">+61 422 273 621</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="k">Follow</span>
+        <span class="v"><a href="https://www.facebook.com/EHCCEagles">Facebook</a> <a href="https://www.instagram.com/ehcc.eagles/">Instagram</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Endeavour Hills Cricket Club</h4>
+        <p>Sydney Pargeter Reserve, Power Road,<br>Endeavour Hills VIC 3802</p>
+      </div>
+      <div>
+        <h4>Play</h4>
+        <ul><li><a href="#play">Juniors</a></li><li><a href="#play">Seniors</a></li><li><a href="#play">Women &amp; girls</a></li><li><a href="#play">Veterans</a></li></ul>
+      </div>
+      <div>
+        <h4>Club</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#committee">Committee</a></li><li><a href="#history">Honour board</a></li><li><a href="#sponsors">Sponsors</a></li></ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul><li><a href="https://www.facebook.com/EHCCEagles">Facebook</a></li><li><a href="https://www.instagram.com/ehcc.eagles/">Instagram</a></li><li><a href="https://wa.me/61422273621">WhatsApp</a></li><li><a href="https://www.playhq.com/cricket-australia/org/endeavour-hills-cricket-club/f1b54310">PlayHQ</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-base"><span>© 2026 Endeavour Hills Cricket Club</span><span>Fixtures, results and registration via PlayHQ</span></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); };
+    var fallback = function () {
+      var el = document.getElementById('club-email');
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
